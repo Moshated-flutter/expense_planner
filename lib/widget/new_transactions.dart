@@ -34,7 +34,10 @@ class _NewTransactionsState extends State<NewTransactions> {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           TextField(
-            decoration: InputDecoration(labelText: 'title'),
+            decoration: InputDecoration(
+              labelText: 'title',
+              iconColor: Theme.of(context).primaryColor,
+            ),
             controller: titlecon,
             onSubmitted: (_) => submitdata(),
           ),
@@ -46,7 +49,7 @@ class _NewTransactionsState extends State<NewTransactions> {
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              primary: Colors.purple,
+              primary: Theme.of(context).primaryColor,
             ),
             onPressed: submitdata,
             child: Text(

@@ -1,8 +1,8 @@
 import 'package:expence_planner/widget/new_transactions.dart';
-
 import './widget/transactions_list.dart';
 import 'package:flutter/material.dart';
 import './models/transaction.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -15,7 +15,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'expence planner',
+      title: 'expense planner',
+      theme: ThemeData(
+        textTheme:
+            GoogleFonts.barlowCondensedTextTheme(Theme.of(context).textTheme),
+        primarySwatch: Colors.lightGreen,
+      ),
       home: MyHomePage(),
     );
   }
@@ -60,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('expence planner'),
-        backgroundColor: Color.fromARGB(177, 174, 3, 148),
+        backgroundColor: Theme.of(context).primaryColorDark,
         actions: [
           IconButton(
             onPressed: () {
@@ -79,9 +84,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   'chart',
                   textScaleFactor: 1.5,
                   textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.black),
                 ),
                 elevation: 5,
-                color: Color.fromARGB(255, 222, 135, 239),
+                color: Theme.of(context).primaryColor,
               ),
               width: double.infinity,
               height: 35,
@@ -96,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: () {
           _startAddNewTransaction(context);
         },
-        backgroundColor: Colors.purple,
+        backgroundColor: Theme.of(context).primaryColor,
         child: Icon(
           Icons.add,
         ),
