@@ -12,7 +12,13 @@ class TransactionList extends StatelessWidget {
       child: transactions.isEmpty
           ? Column(
               children: [
-                Text('empty'),
+                SizedBox(
+                  height: 4,
+                ),
+                Text(
+                  'empty',
+                  textScaleFactor: 1.2,
+                ),
                 SizedBox(
                   height: 20,
                 ),
