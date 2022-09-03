@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme:
             GoogleFonts.barlowCondensedTextTheme(Theme.of(context).textTheme),
-        primarySwatch: Colors.lightGreen,
+        primarySwatch: Colors.purple,
       ),
       home: MyHomePage(),
     );

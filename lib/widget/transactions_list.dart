@@ -36,51 +36,35 @@ class TransactionList extends StatelessWidget {
               child: Column(
                 children: transactions.map((tx) {
                   return Card(
-                    child: Row(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.all(0.5),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Theme.of(context).primaryColor,
-                              width: 0.5,
+                    margin: EdgeInsets.symmetric(
+                      vertical: 5,
+                      horizontal: 4,
+                    ),
+                    elevation: 5,
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        radius: 32,
+                        backgroundColor: Theme.of(context).primaryColorDark,
+                        child: FittedBox(
+                          child: Padding(
+                            child: Text(
+                              '\T ${tx.amount}',
+                              style: TextStyle(
+                                fontSize: 19,
+                              ),
                             ),
-                          ),
-                          margin: EdgeInsets.symmetric(
-                            horizontal: 5,
-                            vertical: 5,
-                          ),
-                          child: Text(
-                            'T ${tx.amount}',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                              color: Theme.of(context).primaryColor,
-                            ),
+                            padding: EdgeInsets.all(8),
                           ),
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Card(
-                              child: Text(
-                                tx.title,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 17,
-                                  color: Theme.of(context).primaryColor,
-                                ),
-                              ),
-                              elevation: 3,
-                            ),
-                            Text(
-                              DateFormat().format(tx.date),
-                              style: TextStyle(
-                                  color: Theme.of(context).primaryColor),
-                            ),
-                          ],
-                        )
-                      ],
+                      ),
+                      title: Text(
+                        tx.title,
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                      subtitle: Text(
+                        DateFormat.yMMMd().format(tx.date),
+                        style: Theme.of(context).textTheme.titleSmall,
+                      ),
                     ),
                   );
                 }).toList(),

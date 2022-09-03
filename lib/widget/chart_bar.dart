@@ -13,7 +13,7 @@ class ChartBar extends StatelessWidget {
       children: [
         FittedBox(
           child: Card(
-            child: Text('\$${spendingAmount.toStringAsFixed(1)}'),
+            child: Text('T ${spendingAmount.toStringAsFixed(1)}'),
           ),
         ),
         SizedBox(
