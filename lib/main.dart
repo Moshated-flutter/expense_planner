@@ -18,8 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'expense planner',
       theme: ThemeData(
-        textTheme:
-            GoogleFonts.barlowCondensedTextTheme(Theme.of(context).textTheme),
+        textTheme: GoogleFonts.mavenProTextTheme(Theme.of(context).textTheme),
         primarySwatch: Colors.teal,
       ),
       home: MyHomePage(),
