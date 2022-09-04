@@ -4,8 +4,9 @@ import 'package:intl/intl.dart';
 
 class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
+  Function deleTx;
 
-  TransactionList(this.transactions);
+  TransactionList(this.transactions, this.deleTx);
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -42,30 +43,36 @@ class TransactionList extends StatelessWidget {
                     ),
                     elevation: 5,
                     child: ListTile(
-                      leading: CircleAvatar(
-                        radius: 32,
-                        backgroundColor: Theme.of(context).primaryColorDark,
-                        child: FittedBox(
-                          child: Padding(
-                            child: Text(
-                              '\T ${tx.amount}',
-                              style: TextStyle(
-                                fontSize: 19,
+                        leading: CircleAvatar(
+                          radius: 32,
+                          backgroundColor: Theme.of(context).primaryColorDark,
+                          child: FittedBox(
+                            child: Padding(
+                              child: Text(
+                                '\T ${tx.amount}',
+                                style: TextStyle(
+                                  fontSize: 19,
+                                ),
                               ),
+                              padding: EdgeInsets.all(8),
                             ),
-                            padding: EdgeInsets.all(8),
                           ),
                         ),
-                      ),
-                      title: Text(
-                        tx.title,
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
-                      subtitle: Text(
-                        DateFormat.yMMMd().format(tx.date),
-                        style: Theme.of(context).textTheme.titleSmall,
-                      ),
-                    ),
+                        title: Text(
+                          tx.title,
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
+                        subtitle: Text(
+                          DateFormat.yMMMd().format(tx.date),
+                          style: Theme.of(context).textTheme.titleSmall,
+                        ),
+                        trailing: IconButton(
+                          onPressed: () {
+                            deleTx(tx.id);
+                          },
+                          icon: Icon(Icons.delete),
+                          color: Color.fromARGB(255, 241, 168, 163),
+                        )),
                   );
                 }).toList(),
               ),
